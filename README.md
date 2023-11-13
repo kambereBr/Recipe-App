@@ -115,7 +115,7 @@ install Rails
 Clone this repository to your desired folder:
 
 ```sh
-gh git clone https://github.com/benja27/recipe_app.git
+gh git clone https://github.com/kambereBr/Recipe-App
 ```
 --->
 
