@@ -1,0 +1,15 @@
+<div class="container">
+  <h1><%= @recipe.name %></h1>
+
+  <p>
+    <b>Name:</b> <%= @recipe.name %><br>
+    <b>description:</b> <%= @recipe.description %><br>
+    <b>Cooking Time:</b> <%= @recipe.cooking_time %> minutes<br>
+    <b>Preparation Time:</b> <%= @recipe.preparation_time %> minutes<br>
+    <b>Public:</b> <%= @recipe.public %> <br>
+    <b>Created:</b> <%= @recipe.created_at %> <br>
+  </p>
+
+  <%= link_to "Back", recipes_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "Delete", @recipe, data: { turbo_method: :delete }, class: "btn btn-outline-secondary" %>
+</div>

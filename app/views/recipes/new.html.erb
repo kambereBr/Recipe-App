@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>New Recipe</h1>
+    <%= form_with model: @recipe, url: recipes_path, method: :post, local: true do |f| %>
+    <div>
+        <%= f.label :name%><br>
+        <%= f.text_field :name, required: true%>
+    </div>
+    <div>
+        <%= f.label :preparation_time %><br>
+        <%= f.number_field :preparation_time, required: true %>
+    </div>
+    <div>
+        <%= f.label :cooking_time %><br>
+        <%= f.number_field :cooking_time, required: true %>
+    </div>
+    <div>
+        <%= f.label :description%><br>
+        <%= f.text_area :description, required: true%>
+    </div>
+    <div>
+        <%= f.label :public%><br>
+        <%= f.check_box :public, {}, true, false%>
+    </div>
+    <div>
+        <%= link_to "Back", recipes_path, class: "btn btn-outline-secondary" %>  <%=f.submit 'Add', class: "btn btn-outline-secondary" %>
+    </div>
+    <%end%>
+</div>
+
+
+  

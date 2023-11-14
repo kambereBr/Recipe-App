@@ -1,0 +1,19 @@
+<div class="card mb-3 p-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <h4 class='recipe_title'>
+          <%= link_to recipe_path(recipe) do %>
+            <%=recipe.name%>
+          <%end%>
+        </h4>
+        <label>
+          <%= link_to "Delete", recipe, data: { turbo_method: :delete } %>
+        </label>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><%=recipe.description%></p>
+      </div>
+    </div>
+  </div>
+</div>

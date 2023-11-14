@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :recipe_foods, only: %i[new create]
   resources :inventory_foods, only: %i[new create]
   get 'public_recipes', to: 'public_recipes#index'
-  
+
 end
