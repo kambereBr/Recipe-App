@@ -1,29 +1,28 @@
-<h1>Foods</h1>
 <div class="container text-center">
+  <h2>Foods</h2>
   <div class=" text-end">
-    <%= link_to "Add New Food", new_food_path, class: "btn btn-outline-secondary" %>
+    <%= link_to "Add Food", new_food_path, class: "btn btn-outline-secondary" %>
   </div>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th class="text-center">Name</th>
-      <th class="text-center">Unit</th>
-      <th class="text-center">Price</th>
-      <th class="text-center">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @foods.each do |f| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= f.name %></td>
-        <td><%= f.measurement_unit %></td>
-        <td><%= f.price %></td>
-        <td>
-          <%= link_to "Delete", f, data: { turbo_method: :delete } %>
-        </td>
+        <th class="text-center">Food</th>
+        <th class="text-center">Measurement Unit</th>
+        <th class="text-center">Unit Price</th>
+        <th class="text-center">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @foods.each do |f| %>
+        <tr>
+          <td><%= f.name %></td>
+          <td><%= f.measurement_unit %></td>
+          <td><%= f.price %></td>
+          <td>
+            <%= link_to "Delete", f, data: { turbo_method: :delete } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>  
