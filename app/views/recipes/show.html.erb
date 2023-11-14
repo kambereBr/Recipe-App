@@ -1,0 +1,13 @@
+<h1><%= @recipe.name %></h1>
+
+<p>
+  Name: <%= @recipe.name %><br>
+  description: <%= @recipe.description %><br>
+  Cooking Time: <%= @recipe.cooking_time %> minutes<br>
+  Preparation Time: <%= @recipe.preparation_time %> minutes<br>
+  Public: <%= @recipe.public %> <br>
+  Created : <%= @recipe.created_at %> <br>
+</p>
+
+<%= link_to "Back", recipes_path %> |
+<%= link_to "Delete", @recipe, data: { turbo_method: :delete } %>
