@@ -1,2 +1,28 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<div class="container text-center">
+  <h2>Foods</h2>
+  <div class=" text-end">
+    <%= link_to "Add Food", new_food_path, class: "btn btn-outline-secondary" %>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">Food</th>
+        <th class="text-center">Measurement Unit</th>
+        <th class="text-center">Unit Price</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |f| %>
+        <tr>
+          <td><%= f.name %></td>
+          <td><%= f.measurement_unit %></td>
+          <td><%= f.price %></td>
+          <td>
+            <%= link_to "Delete", f, data: { turbo_method: :delete } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>  
