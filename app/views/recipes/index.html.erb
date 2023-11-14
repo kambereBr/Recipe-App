@@ -1,0 +1,21 @@
+<div class='recipes_list'>
+  <div class="add_recipe_btn">
+    <%= link_to 'Add Recipes', new_recipe_path %>
+  </div>
+  <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <div>
+    <%if @recipes.present?%>
+        <ul id='recipes_list'>
+        <% @recipes.each_with_index do |recipe, index| %>
+            <li class="all_recipes">
+            <%= render partial: "partials/recipe_item", locals: { recipe: recipe, index:index } %>
+            </li>
+        <% end %>
+        </ul>
+    <%else%>
+        <%='No recipes'%>
+    <%end%>
+  </div>
+</div>
