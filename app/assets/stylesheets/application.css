@@ -1,15 +1,328 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #2b3452;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Shantell Sans', cursive;
+  z-index: 1;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.new_user,
+.edit_user,
+.newFood {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: -11px;
+  color: #fff;
+}
+
+input {
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+form .button_to {
+  display: flex;
+}
+
+.navBar {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+}
+
+.recipes,
+.inventories {
+  width: 70%;
+  margin: 20px auto;
+}
+
+.newRecipe {
+  border: 2px solid white;
+  font-size: 18px;
+  width: 150px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  left: 87%;
+  border-radius: 5px;
+}
+
+.recipe,
+.inventory {
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 20px auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.recipeactions {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.removeRecipe {
+  border: 2px solid white;
+  margin-left: 20px;
+  width: 120px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.recipeName {
+  margin: 10px 0 0 30px;
+  overflow: hidden;
+}
+
+.recipeDescription {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.recipeDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  margin-top: 20px;
+}
+
+.preparation {
+  font-size: 25px;
+}
+
+.toggolePublic {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.checkbox {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.recipeHead,
+.inventoryHead {
+  text-align: center;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.cokking_time,
+.steps {
+  font-size: 25px;
+  position: relative;
+  left: -430px;
+}
+
+#open-modal {
+  border-radius: 5px;
+  width: 320px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  position: relative;
+  left: -150px;
+}
+
+.Addingredient {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border: 2px solid white;
+  font-size: 18px;
+  border-radius: 5px;
+  justify-content: center;
+  position: relative;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+#modal {
+  width: 650px;
+  height: 500px;
+  position: absolute;
+  top: 30px;
+  left: 25%;
+  border: 2px solid white;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chooseOne {
+  font-size: 22px;
+  position: relative;
+  top: 50px;
+  left: 10px;
+}
+
+.selectAndGenerate {
+  position: relative;
+  top: 100px;
+  margin: auto;
+  height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#select-inventory {
+  width: 200px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.generate {
+  font-size: 22px;
+  width: 150px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-modal {
+  position: relative;
+  top: 60%;
+  left: 40%;
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.info {
+  display: flex;
+}
+
+.column {
+  font-size: 22px;
+  width: 30%;
+  text-align: start;
+  margin: 50px 0 30px 200px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.navbar-link,
+.logout {
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logout {
+  height: 33px;
+  font-size: 22px;
+}
+
+.login {
+  width: 100px;
+  cursor: pointer;
+}
+
+.link-signup {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.link-login {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.sign-up {
+  width: 100px;
+  cursor: pointer;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 160px;
+  font-size: 20px;
+}
+
+#user_remember_me {
+  width: 17px;
+  cursor: pointer;
+}
