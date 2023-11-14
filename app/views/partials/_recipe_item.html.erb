@@ -1,0 +1,13 @@
+<div class='recipe_item'>
+  <h4 class='recipe_title'>
+    <%= link_to recipe_path(recipe) do %>
+      <%=recipe.name%> : 
+    <%end%>
+  </h4>
+  <label>
+     <%= link_to "Delete", recipe, data: { turbo_method: :delete } %>
+  </label>
+  <div class='recipe_description'>
+    <%=recipe.description%>
+  </div>
+</div>
