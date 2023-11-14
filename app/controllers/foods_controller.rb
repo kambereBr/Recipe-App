@@ -8,7 +8,12 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Foo.new(food_params)
+    @food = Food.new(food_params)
+    if @food.save
+      redirect_to @food, notice: 'Food was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
