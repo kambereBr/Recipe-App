@@ -5,11 +5,11 @@ require_relative "application"
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-   :user_name => "ahmedsalah025566@gmail.com",
-   :password => "wBD4ITP95XGQr6kE",
-   :domain => "yourdomain.com",
-   :address => "smtp-relay.sendinblue.com",
-   :port => 587,
-   :authentication => :plain,
-   :enable_starttls_auto => true
- }
+  :user_name => "aelkholy690@gmail.com",
+  :password => "vrstYDxdf4FBEK7U",
+  :domain => "yourdomain.com",
+  :address => "smtp-relay.sendinblue.com",
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true 
+}
