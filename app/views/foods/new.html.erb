@@ -1,23 +1,31 @@
-<div class="container">
-  <h2>Add New Food</h2>
-  <%= form_with model: @food, url: foods_path do |f| %>
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
+<%= form_with(model: @food, class:("newFood")) do |form| %>
+  <% if @food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
-    <div class="field">
-      <%= f.label :measurement_unit %>
-      <%= f.text_field :measurement_unit, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :price %>
-      <%= f.number_field :price, class: "form-control" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit class: "btn btn-outline-secondary mt-3" %>
+      <ul>
+        <% @food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, style: "text-transform: capitalize;" %>
+  </div>
+
+  <div>
+    <%= form.label :measurement_unit, style: "display: block" %>
+    <%= form.text_field :measurement_unit %>
+  </div>
+
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.submit%>
+  </div>
+<% end %>

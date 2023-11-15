@@ -1,15 +1,93 @@
-<div class="container">
-  <h1><%= @recipe.name %></h1>
-
-  <p>
-    <b>Name:</b> <%= @recipe.name %><br>
-    <b>description:</b> <%= @recipe.description %><br>
-    <b>Cooking Time:</b> <%= @recipe.cooking_time %> minutes<br>
-    <b>Preparation Time:</b> <%= @recipe.preparation_time %> minutes<br>
-    <b>Public:</b> <%= @recipe.public %> <br>
-    <b>Created:</b> <%= @recipe.created_at %> <br>
-  </p>
-
-  <%= link_to "Back", recipes_path, class: "btn btn-outline-secondary" %>
-  <%= link_to "Delete", @recipe, data: { turbo_method: :delete }, class: "btn btn-outline-secondary" %>
+<h1 class="recipeHead"> <%= @recipe.name%> </h1>
+<div class="recipeDetails">
+  <div class="row">
+    <p class="preparation">Preparation time: <%= @recipe.preparation_time%> hour</p>
+    <% if can? :manage,@recipe %>
+      <%= form_with(model: @recipe, class:('toggolePublic')) do |form| %>
+        <div class="checkbox">
+          <%= form.label :public,class:('public') %>
+          <%= form.check_box :public %>
+        </div>
+    
+        <div>
+          <%= form.submit class: 'update'%>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <p class="cokking_time">Cooking time: <%= @recipe.cooking_time%> hour</p>
+  </div>
+  <div class="row">
+    <% if can? :read, @recipe or @recipe.public %>
+      <p class="steps"> <%= @recipe.description%> </p>
+    <% end %>
+ </div>
+ <div class="row">
+    <button id="open-modal">Generate shopping list</button>
+    <div id="modal" class="modal hidden">
+      <h2 class="center">Generate shopping list</h2>
+      <p class="chooseOne">Choose an inventory to use</p>
+      <div class="selectAndGenerate">
+        <select id="select-inventory">
+          <option value="" disabled>--Select inventory--</option>
+          <% @inventories.each do |inventory| %>
+            <option value= <%= inventory.id %> > <%= inventory.name%> </option>
+          <% end %>
+        </select>
+        <button class="generate">Generate</button>
+      </div>
+      <button type="button" id="close-modal">Close</button>
+    </div>
+  
+    <% if can? :manage, @recipe %>
+    <%= link_to 'Add ingredient', new_food_path(recipe: @recipe) , class:("Addingredient") %>
+    <% end %>
 </div>
+</div>
+<table class="recipeFoods">
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+    </tr>
+    <% @recipe_foods.each do |one| %>
+     <tr>
+       <td> <%= one.food.name %> </td>
+       <td> <%= one.quantity %> <%= one.food.measurement_unit %></td>
+       <td> $ <%= one.quantity * one.food.price %> </td>
+       <td>
+       <%= button_to "Remove", one.food, method: :delete , class:('removeRecipe'), remote: true %>
+       <%= link_to "Edit this food", edit_food_path(one.food) %>
+       </td>
+     </tr>
+    <% end %>
+  
+</table>
+<script> 
+  
+var openModalButton = document.getElementById("open-modal");
+var modal = document.getElementById("modal");
+
+  openModalButton.addEventListener("click", function() {
+    modal.classList.remove('hidden')
+    openModalButton.style.display = "none";
+  });
+var closeModalButton = document.getElementById("close-modal");
+
+closeModalButton.addEventListener("click", function() {
+  modal.classList.add('hidden')
+  openModalButton.style.display = "block";
+});
+
+  var selectedInventory =  document.getElementById('select-inventory')
+  var selectedInventoryId = selectedInventory.value
+  var shoppingListUrl = "<%= shopping_list_index_path(recipe: @recipe) %>";
+  var modifiedUrl = shoppingListUrl + '?inventory=' + selectedInventoryId;
+  var generate = document.querySelector('.generate')
+  generate.addEventListener('click', () => {
+    window.location.href = modifiedUrl
+  })
+
+</script>

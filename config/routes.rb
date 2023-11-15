@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   devise_for :users
-  resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :recipes
   resources :inventories, only: [:index, :show, :new, :create, :destroy]
   resources :foods
   resources :shopping_list, only: %i[index]
