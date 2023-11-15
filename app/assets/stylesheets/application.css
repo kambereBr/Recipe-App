@@ -170,6 +170,7 @@ a {
   font-size: 20px;
   position: relative;
   left: -150px;
+  cursor: pointer;
 }
 
 .Addingredient {
@@ -330,4 +331,8 @@ tr:nth-child(even) {
 .no-link {
   text-decoration: none;
   color: black;
+}
+
+.update {
+  cursor: pointer;
 }
