@@ -1,0 +1,24 @@
+<%= render "layouts/navBar" %>
+<h2 class="inventoryHead"> <%= @inventory.name %> </h2>
+<% if can? :manage, @inventory %>
+  <%= link_to 'Add new food', new_food_path(inventory: @inventory) , class:("newRecipe") %>
+<% end %>
+
+<table class="recipeFoods">
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+    </tr>
+    <% @inventories_foods.each do |i| %>
+     <tr>
+       <td> <%= i.food.name %> </td>
+       <td> <%= i.quantity %> <%= i.food.measurement_unit %></td>
+       <td>
+       <%= button_to "Remove", i.food, method: :delete , class:('removeRecipe'), remote: true %>
+       <%= link_to "Edit food", edit_food_path(i.food) %>
+       </td>
+     </tr>
+    <% end %>
+  
+</table>
