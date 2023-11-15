@@ -326,3 +326,8 @@ tr:nth-child(even) {
   width: 17px;
   cursor: pointer;
 }
+
+.no-link {
+  text-decoration: none;
+  color: black;
+}
