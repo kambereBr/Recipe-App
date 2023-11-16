@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #2b3452;
+  background-color: #2b524f;
   color: #fff;
   overflow-x: hidden;
   font-family: 'Shantell Sans', cursive;
@@ -155,7 +155,7 @@ a {
   text-transform: capitalize;
 }
 
-.cokking_time,
+.cooking_time,
 .steps {
   font-size: 25px;
   position: relative;
