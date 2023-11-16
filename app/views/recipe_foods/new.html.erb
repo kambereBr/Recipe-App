@@ -1,0 +1,11 @@
+<%= form_with(model: @recipe_food) do |f| %> 
+    <div>
+      <%= f.label :quantity, class: "d-block" %>
+      <%= f.number_field :quantity %>
+    </div>
+  
+    <div>
+      <%= f.submit %>
+    </div>
+<% end %>
+  
