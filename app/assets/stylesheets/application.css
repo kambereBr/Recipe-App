@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap");
 
 * {
   margin: 0;
@@ -31,7 +31,7 @@ body {
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: -11px;
+  margin-top: 5px;
   color: #fff;
 }
 
@@ -155,7 +155,7 @@ a {
   text-transform: capitalize;
 }
 
-.cooking_time,
+.cokking_time,
 .steps {
   font-size: 25px;
   position: relative;
@@ -170,7 +170,6 @@ a {
   font-size: 20px;
   position: relative;
   left: -150px;
-  cursor: pointer;
 }
 
 .Addingredient {
@@ -291,48 +290,4 @@ tr:nth-child(even) {
 .logout {
   height: 33px;
   font-size: 22px;
-}
-
-.login {
-  width: 100px;
-  cursor: pointer;
-}
-
-.link-signup {
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.link-login {
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.sign-up {
-  width: 100px;
-  cursor: pointer;
-}
-
-.rememberMe {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 160px;
-  font-size: 20px;
-}
-
-#user_remember_me {
-  width: 17px;
-  cursor: pointer;
-}
-
-.no-link {
-  text-decoration: none;
-  color: black;
-}
-
-.update {
-  cursor: pointer;
 }

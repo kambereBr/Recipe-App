@@ -1,19 +1,21 @@
-<div class="container">
-  <div class="row p-3">
-    <h2 class="col">Inventories</h2>
-    <div class="col text-end">
-      <%= link_to "Add New Inventory", new_inventory_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'New inventory', new_inventory_path, class:("newRecipe") %>
+<div class="inventories">
+<% @inventories.each do | inventory| %>
+  <div class="inventory">
+    <div class="recipeactions">
+      <h2> <%=  inventory.name %> </h2>
+      <% if can? :destroy,  inventory%>
+        <%= button_to "Remove", inventory, method: :delete , class:('removeRecipe'), remote: true %>
+      <% end %>
     </div>
+    <%= link_to inventory_path(inventory), class:('recipeDetails') do %>
+      <p class="recipeDescription"> 
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+      commodo ligula eget dolor. Aenean massa.
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      </p>
+    <% end %>
   </div>
-
-  <% @inventories.each do |inventory| %>
-    <div class="card m-3 ps-5 p-3">
-      <%= link_to inventory, class: "no-link" do %>
-        <%= render partial: 'inventory', locals: { inventory: inventory } %>
-      <% end %>
-      <% unless inventory.user == !current_user %>
-        <div><%= link_to "REMOVE", inventory_path(inventory), data: { turbo_method: :delete }, class: "fs-4" %></div>
-      <% end %>
-    </div>
-  <% end %>
+<% end %>
 </div>
+

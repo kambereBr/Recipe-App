@@ -1,25 +1,23 @@
-<div class="container">
-  <div class="row mb-3">
-    <h2 class="col">Add New Inventory</h2>
-    <div class="col text-end">
-      <%= link_to inventories_path, class: "btn btn-outline-secondary" do %>
-        Back
-      <% end %>
+<%= form_with(model: @inventory) do |form| %>
+    <% if @inventory.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+  
+        <ul>
+          <% @inventory.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
     </div>
-  </div>
-  <%= form_with model: @inventory, url: inventories_path do |f| %>
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Create New Inventory", class: "btn btn-outline-secondary mt-3" %>
+    
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-</div>
+  
