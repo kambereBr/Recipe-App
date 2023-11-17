@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Integration test for foods index page', type: :system do
+RSpec.describe 'Integration test for foods edit page', type: :system do
   before(:each) do
     driven_by(:rack_test)
     Food.create(name: 'Limon', measurement_unit: 'kg', price: 28)
