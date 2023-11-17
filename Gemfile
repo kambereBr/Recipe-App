@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.1.4'
+ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.1'
@@ -49,10 +49,10 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
-
-  gem 'rspec-rails', '~> 6.0.0'
-
+  
   gem 'rails-controller-testing'
+
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
 end
 
 group :development do
