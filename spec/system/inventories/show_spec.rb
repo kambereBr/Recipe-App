@@ -22,4 +22,11 @@ RSpec.describe 'Integration test for inventories show page', type: :system do
       expect(page).to have_content('Actions')
     end
   end
+
+  describe 'check for other features in the page' do
+    it 'has a button to add a new food' do
+      visit inventory_path(Inventory.last)
+      expect(page).to have_link('Add food')
+    end
+  end
 end
