@@ -13,6 +13,20 @@ RSpec.describe 'Integration test for foods new page', type: :system do
     click_button 'Sign up'
   end
 
+  describe 'check for the things in the page' do
+    it 'has a form input to add food information' do
+      visit new_food_path
+      expect(page).to have_field('Name')
+      expect(page).to have_field('Measurement unit')
+      expect(page).to have_field('Price')
+    end
+
+    it 'has a form submit button' do
+      visit new_food_path
+      expect(page).to have_button('Create Food')
+    end
+  end
+
   describe 'check for the feature in the page' do
     it 'Adds a food on click add food' do
       visit foods_path
