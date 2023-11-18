@@ -1,4 +1,11 @@
-<%= form_with(model: @recipe_food) do |f| %> 
+<%= form_with(model: @recipe_food, local: true) do |f| %> 
+    <%= f.hidden_field :recipe_id %>
+    <%= @recipe %>
+    <div>
+      <%= f.label :food_id, class: "d-block" %>
+      <%= f.collection_select :food_id, Food.all, :id, :name %>
+    </div>
+    
     <div>
       <%= f.label :quantity, class: "d-block" %>
       <%= f.number_field :quantity %>
