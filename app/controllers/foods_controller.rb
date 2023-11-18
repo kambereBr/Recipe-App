@@ -21,11 +21,11 @@ class FoodsController < ApplicationController
     if session[:recipe].nil? and !session[:inventory].nil?
       (@inventory = session[:inventory]
        if @food.save
-        redirect_to new_inventory_food_path(food: @food, inventory: @inventory),
-        notice: 'Food was successfully created.'
-        session[:inventory] = nil
+         redirect_to new_inventory_food_path(food: @food, inventory: @inventory),
+                     notice: 'Food was successfully created.'
+         session[:inventory] = nil
        else
-        render :new, notice: 'Please try again'
+         render :new, notice: 'Please try again'
        end)
     elsif session[:inventory].nil? and !session[:recipe].nil?
       (
@@ -38,7 +38,7 @@ class FoodsController < ApplicationController
         end)
     elsif @food.save
       redirect_to foods_path,
-      notice: 'Food was successfully created.'
+                  notice: 'Food was successfully created.'
 
     else
       render :new, notice: 'Please try again'
