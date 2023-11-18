@@ -1,0 +1,25 @@
+<h1 class="center">shopping list</h1>
+<div class="info">
+  <div class="column">
+    <p class="amount">Amount of foods to buy: <%= @counter%> </p>
+    <p>Total value of food needed: $ <%= @total %></p>
+  </div>
+  <div class="column">
+    <p>Recipe: Recipe <%= @recipe.id%></p>
+    <p>Inventory: Inventory <%= @inventory_id%></p>
+  </div>
+</div>
+<table>
+  <tr>
+   <th>Food</th>
+   <th>Quantity</th>
+   <th>Price</th>
+  </tr>
+  <% @foods_to_buy.each do |food|%>
+    <tr>
+     <td> <%= food[:food]%> </td>
+     <td> <%= food[:quantity] %> <%= food[:unit] %> </td>
+     <td> $ <%= food[:quantity] * food[:price]%> </td>
+    </tr>
+  <% end %>
+</table>

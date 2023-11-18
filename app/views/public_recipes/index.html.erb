@@ -1,0 +1,22 @@
+<h1>Public Recipes</h1>
+<div class="recipes">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <div class="recipeactions">
+        <h2 class="recipeName"> <%= recipe.name %> </h2>
+        <h3>By: <%= recipe.user.name %></h3>
+        <% if can? :destroy, recipe%>
+          <%= button_to "Remove", recipe, method: :delete , class:('removeRecipe'), remote: true %>
+        <% end %>
+      </div>
+      <%= link_to recipe_path(recipe), class:('recipeDetails') do %>
+        <p>Total food items: <%= recipe.foods.count %></p>
+        <% total = 0 %>
+        <% recipe.foods.each do |food| %>
+            <% total += food.recipe_foods.first.quantity * food.price %>
+        <% end %>
+        <p>Total price: <%= total %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div> 

@@ -1,0 +1,21 @@
+<%= link_to 'New inventory', new_inventory_path, class:("newRecipe") %>
+<div class="inventories">
+<% @inventories.each do | inventory| %>
+  <div class="inventory">
+    <div class="recipeactions">
+      <h2> <%=  inventory.name %> </h2>
+      <% if can? :destroy,  inventory%>
+        <%= button_to "Remove", inventory, method: :delete , class:('removeRecipe'), remote: true %>
+      <% end %>
+    </div>
+    <%= link_to inventory_path(inventory), class:('recipeDetails') do %>
+      <p class="recipeDescription"> 
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+      commodo ligula eget dolor. Aenean massa.
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      </p>
+    <% end %>
+  </div>
+<% end %>
+</div>
+
